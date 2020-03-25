@@ -1,6 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.multiplatform' version '1.3.71'
-    id 'org.jetbrains.kotlin.plugin.serialization' version  '1.3.71'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.3.71'
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
@@ -9,7 +9,6 @@ repositories {
 repositories {
     jcenter()
 }
-
 kotlin {
     mingwX64("mingw") {
         binaries {
@@ -23,14 +22,11 @@ kotlin {
         }
     }
     sourceSets {
-        dependencies {
-
-            // implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.70"
-            //implementation(kotlin("stdlib-jdk8", '1.3.70') )// or "stdlib-jdk8"
-            // implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.20.0") // JVM dependency
-        }
-
         mingwMain {
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.70"
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.20.0") // JVM dependency
+            }
         }
         mingwTest {
         }
